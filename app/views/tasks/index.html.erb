@@ -1,0 +1,10 @@
+<h1>All Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li class = "mb-4"><%= link_to(task.title, task_path(task)) %> | <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%></li>
+    
+  <% end %>
+</ul>
+
+<%= link_to("Create a task", new_task_path, class: "btn btn-primary") %>
